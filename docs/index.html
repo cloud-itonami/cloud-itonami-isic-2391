@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manufacture of refractory products | cloud-itonami-isic-2391</title>
+  <meta name="description" content="Manufacture of refractory products — governed open occupation blueprint (ISIC 2391).">
+  <style>
+    :root { --bg:#f5f7fa; --card:#fff; --fg:#1b1f24; --muted:#57606a; --accent:#1e3a8a; --line:#d0d7de; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg:#0d1117; --card:#161b22; --fg:#e6edf3; --muted:#8d96a0; --accent:#58a6ff; --line:#30363d; }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, -apple-system, sans-serif; background: linear-gradient(135deg, var(--bg), #c3cfe2);
+           min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; color: var(--fg); }
+    .container { max-width: 800px; width: 100%; background: var(--card); border-radius: 12px;
+                 box-shadow: 0 10px 40px rgba(0,0,0,.1); padding: 48px 40px; border: 1px solid var(--line); }
+    h1 { font-size: 1.85rem; color: var(--accent); margin-bottom: 8px; }
+    .badge { display: inline-block; background: #e0e7ff; color: var(--accent); padding: 3px 10px;
+             border-radius: 4px; font-size: .85rem; font-weight: 600; margin-bottom: 20px; }
+    @media (prefers-color-scheme: dark) { .badge { background: #1f2a44; } }
+    .pitch { border-left: 4px solid var(--accent); padding-left: 16px; margin: 20px 0 28px; color: var(--muted); line-height: 1.7; }
+    .pitch p { margin-bottom: 10px; }
+    .meta { font-size: .9rem; color: var(--muted); margin-bottom: 24px; }
+    .meta code { background: var(--bg); padding: 1px 6px; border-radius: 4px; }
+    .cta { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 28px; }
+    @media (max-width: 560px) { .cta { grid-template-columns: 1fr; } }
+    .cta a { display: block; text-align: center; text-decoration: none; padding: 14px 18px;
+             border-radius: 8px; font-weight: 600; }
+    .cta .primary { background: var(--accent); color: #fff; }
+    .cta .secondary { border: 1.5px solid var(--accent); color: var(--accent); }
+    ul.links { list-style: none; font-size: .95rem; }
+    ul.links li { margin: 8px 0; }
+    a { color: var(--accent); }
+    footer { margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--line);
+             font-size: .85rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <h1>Manufacture of refractory products</h1>
+    <div class="badge">ISIC 2391 · maturity implemented</div>
+    <div class="pitch">
+      <p>Open Business Blueprint for ISIC Rev.5 2391: manufacture of refractory products — an autonomous &quot;actor&quot; (LLM advisor behind an independent Governor, langgraph-clj StateGraph, append-only audit ledger) that coordinates back-office refractory-products plant operations: production-batch data logging (product-type/weight/thermal-shock-resistance/cold-crushing-strength test results), pressing-line/kiln-line-equipment maintenance scheduling, safety-concern flagging, and outbound refractory-product shipment coordination.</p>
+      <p>This repository designs a forkable OSS business for refractory- products plant operations: run by a qualified operator so a fire- brick/lining plant keeps its own operating records instead of renting a closed SaaS.</p>
+      <p>ISIC 2391 covers the refractory-products plant that batches raw materials (chamotte, alumina, magnesia, silica), presses (uniaxial or isostatic) or casts them into shape, dries, then fires in a kiln (tunnel kiln or shuttle kiln, typically at higher service temperatures than building-material brick) — producing fireclay brick, silica brick, high-alumina brick, magnesia brick, insulating firebrick, monolithic castable, ramming mix, or kiln furniture: fire brick, kiln lining and furnace lining materials for high-temperature-service industrial furnaces and kilns. This is distinct from cloud-itonami-isic-2392 (Manufacture of clay building materials), which covers construction brick/tile rather than high-temperature- service furnace/kiln linings, and from cloud-itonami-isic-2393 (Manufacture of other porcelain and ceramic products), a separate ceramics vertical with a different feedstock and firing profile. This actor's own hazard profile is centered on the kiln-firing line and raw-material batching/pressing: kiln-fire/thermal-hazard (radiant heat and burn risk at the firing zone, typically hotter service than building-material brick firing), refractory-dust hazard (crystalline silica/alumina/magnesia respirable dust exposure at batching and pressing — a well-documented silicosis risk in this industry), and pressing-line-equipment pinch-point/crush hazard (uniaxial/isostatic hydraulic press).</p>
+    </div>
+    <p class="meta">Domain <code>refractory-products/manufacturing</code> · Governor <code>refractory-plant-operations-governor</code> · License <code>AGPL-3.0-or-later</code></p>
+    <div class="cta">
+      <a class="primary" href="https://itonami.cloud/isco-1212/">Fork + self-host claim</a>
+      <a class="secondary" href="https://itonami.cloud/docs/go-live.md">Paid go-live path</a>
+    </div>
+    <ul class="links">
+      <li><a href="https://github.com/cloud-itonami/cloud-itonami-isic-2391">GitHub repository</a></li>
+      <li><a href="./operator-quickstart.md">Operator quickstart</a></li>
+      <li><a href="https://github.com/cloud-itonami/cloud-itonami-isic-2391/blob/main/blueprint.edn">blueprint.edn</a></li>
+      <li><a href="https://github.com/cloud-itonami/cloud-itonami-isic-2391/blob/main/README.md">README</a></li>
+    </ul>
+    <footer>
+      <p>Open occupation blueprint — no invented usage or revenue metrics. Product face generated for impl-product maturity (Lane C).</p>
+    </footer>
+  </main>
+</body>
+</html>
