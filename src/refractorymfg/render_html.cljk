@@ -8,7 +8,7 @@
   `refractorymfg.governor` -> `refractorymfg.phase` ->
   `refractorymfg.registry` -> `refractorymfg.store` -- through a
   scenario adapted from this repo's own `refractorymfg.sim` demo driver
-  (`clojure -M:dev:run`, confirmed to run BEFORE this file was written).
+  (`kbb -M:dev:run`, confirmed to run BEFORE this file was written).
 
   EVERY id, number, status, rule name and hold detail on the rendered
   page is read back out of that real run: the batch/equipment tables
@@ -32,7 +32,7 @@
   consecutive runs against the same seed are byte-identical (verify by
   diffing them).
 
-  Usage: `clojure -M:dev:render-html [out-file]`
+  Usage: `kbb -M:dev:render-html [out-file]`
   (default `docs/samples/operator-console.html`)."
   (:require [jp-go-dds.skin]
             [kotoba.lang.text :as str]
@@ -460,7 +460,7 @@
      "</main>\n"
      "<footer>\n"
      "  <p>Generated at build time by <code>refractorymfg.render-html</code> "
-     "(<code>clojure -M:dev:render-html</code>) from a real "
+     "(<code>kbb -M:dev:render-html</code>) from a real "
      "<code>refractorymfg.operation</code> actor run — no hand-written page data.</p>\n"
      "</footer>\n"
      "</body></html>\n")))
