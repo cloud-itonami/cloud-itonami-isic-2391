@@ -1,5 +1,5 @@
 (ns refractorymfg.sim
-  "Demo driver -- `clojure -M:dev:run`. Walks a clean refractory-
+  "Demo driver -- `kbb -M:dev:run`. Walks a clean refractory-
   products plant through intake -> maintenance scheduling (escalate/
   approve) -> safety-concern flag (escalate/approve) -> shipment
   coordination (escalate/approve), then shows HARD-hold scenarios: a
