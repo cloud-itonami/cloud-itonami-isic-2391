@@ -1,0 +1,45 @@
+;; What this vertical's robot physically does, declared for
+;; kotoba.robotics.process (kotoba-lang/robotics). `kbb -M:dev:physics` runs it.
+;;
+;; The README has no "Robotics premise" section; its Scope names the plant
+;; this actor coordinates (ISIC 2391): batching chamotte/alumina/magnesia/
+;; silica, pressing or casting shapes, drying and firing in a tunnel or
+;; shuttle kiln. The physical work of that plant taken here: firing a
+;; pressed brick through to its centre, the cold-face temperature of an
+;; insulating lining the plant sells (and fits in its own kilns), and the
+;; setting robot stacking green bricks onto the kiln car.
+;;
+;; Every number without a cited source is marked `estimate` in its :basis.
+;; Replacing an estimate with a sourced value is this bot's growth work.
+{:physics/schema "itonami.physical-ai.spec.v1"
+ :repo "cloud-itonami/cloud-itonami-isic-2391"
+ :cases
+ [{:id :brick-firing-soak
+   :kind :thermal
+   :procedure "pressed fireclay shape in the kiln's firing zone at 1450 C (radiation lumped into the surface coefficient): time for its centre to reach 1400 C (half thickness, centre adiabatic)"
+   :params {:thickness-m 0.0325 :conductivity-w-mk 1.5 :density-kg-m3 2300.0 :specific-heat-j-kgk 1100.0
+            :t0-c 900.0 :t-hot-c 1450.0 :h-front-w-m2k 150.0 :h-back-w-m2k 0.0
+            :threshold-c 1400.0 :duration-s 43200.0 :nodes 11}
+   :sweep {:param :thickness-m :values [0.02 0.0325 0.05 0.075 0.10]}
+   :quantity :time-to-threshold-s
+   :limit {:max 14400.0 :basis "estimate: the shape must soak through within the 4 h it spends in the firing zone of the tunnel kiln"}
+   :boundary {:lo 0.01 :hi 0.25}}
+  {:id :lining-cold-face
+   :kind :thermal
+   :procedure "300 mm insulating lining with a 1300 C hot face: cold-face (shell) temperature against 25 C ambient after 20 days, by insulation grade"
+   :params {:thickness-m 0.30 :conductivity-w-mk 0.3 :density-kg-m3 800.0 :specific-heat-j-kgk 1000.0
+            :t0-c 25.0 :t-hot-c 1300.0 :front-fixed? true :t-back-ambient-c 25.0 :h-back-w-m2k 12.0
+            :threshold-c 80.0 :duration-s 1728000.0 :nodes 11}
+   :sweep {:param :conductivity-w-mk :values [0.10 0.15 0.20 0.30 0.40]}
+   :quantity :final-back-c
+   :limit {:max 80.0 :basis "estimate: 80 C taken as the maximum kiln-shell temperature for heat loss and contact protection"}
+   :boundary {:lo 0.05 :hi 0.6}}
+  {:id :kiln-car-setting
+   :kind :manipulator
+   :procedure "setting robot lifts green bricks from the press take-off belt onto the kiln car's setting pattern"
+   :params {:l1-m 0.60 :l2-m 0.50 :m1-kg 9.0 :m2-kg 6.0
+            :from [0.75 0.30] :to [0.40 0.70] :duration-s 2.0 :steps 400}
+   :sweep {:param :payload-kg :values [3.5 7.0 10.5 14.0 21.0]}
+   :quantity :peak-tau1-nm
+   :limit {:max 300.0 :basis "estimate: continuous shoulder torque of a ~25 kg-payload setting-robot arm class"}
+   :boundary {:lo 1.0 :hi 80.0}}]}
